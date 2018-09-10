@@ -1,7 +1,7 @@
 # CCU2GW - use ccu2 as lan gateway [![Github All Releases](https://img.shields.io/github/downloads/jp112sdl/CCU2GW/total.svg)](https://github.com/jp112sdl/CCU2GW/releases) 
 
 #### auf CCU2:
-- `mount -o remount,rw`
+- `mount -o remount,rw /`
 - `wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://github.com/jp112sdl/CCU2GW/releases/download/0.0.1/hmlangw`
 - `wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw`
 - `chmod 755 /usr/local/addons/hmlangw`
