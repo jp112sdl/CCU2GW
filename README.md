@@ -26,13 +26,13 @@ CFLAGS  = -Wall -O2 -pipe -march=armv5te -mtune=arm926ej-s -msoft-float -mfloat-
 
 
 #### CCU2
-Funkmodul FW Version anzeigen:
+Funkmodul FW Version anzeigen:<br/>
 `eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -v -d /firmware`
 
--> /firmware/fwmap editieren; 1.4.1 muss aktiv sein
+-> /firmware/fwmap editieren; 1.4.1 muss aktiv sein<br/>
 `eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -u -d /firmware`
 
-_Test (vorher alle Dienste beenden, die aufs Funkmodul zugreifen) mit_
+_Test (vorher alle Dienste beenden, die aufs Funkmodul zugreifen) mit_<br/>
 `/usr/local/addons/hmlangw -D -n CCU2LANGW1 -s /dev/mxs_auart_raw.0 -r -1`
 
 ```
