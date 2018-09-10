@@ -7,22 +7,16 @@ mount -o remount,rw /
 - apt-get update
 - apt-get install libgcc-6-dev-armel-cross gcc-arm-linux-gnueabi g++-arm-linux-gnueabi libgcc1-armel-cross
 
-- wget https://raw.githubusercontent.com/jens-maus/RaspberryMatic/master/buildroot-external/package/hmlangw/hmlangw.cpp
-- wget https://raw.githubusercontent.com/jens-maus/RaspberryMatic/master/buildroot-external/package/hmlangw/hmframe.cpp
-- wget https://raw.githubusercontent.com/jens-maus/RaspberryMatic/master/buildroot-external/package/hmlangw/hmframe.h
-- wget https://raw.githubusercontent.com/jens-maus/RaspberryMatic/master/buildroot-external/package/hmlangw/Makefile
-- wget https://raw.githubusercontent.com/jens-maus/RaspberryMatic/master/buildroot-external/package/hmlangw/S61hmlangw
-- edit Makefile:
+- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmlangw.cpp
+- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmframe.cpp
+- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmframe.h
+- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/Makefile
+- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw
 
-```
-CC      = arm-linux-gnueabi-gcc
+- make
 
-CFLAGS  = -Wall -O2 -pipe -march=armv5te -mtune=arm926ej-s -msoft-float -mfloat-abi=soft
-```
- - make
-
- - scp hmlangw root@ccu2:/usr/local/addons/
- - scp S61hmlangw root@ccu2:/etc/init.d/
+- scp hmlangw root@ccu2:/usr/local/addons/
+- scp S61hmlangw root@ccu2:/etc/init.d/
 
 
 #### CCU2
