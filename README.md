@@ -3,19 +3,17 @@
 #### auf CCU2:
 ```
 mount -o remount,rw /
+mv /firmware/fwmap /firmware/fwmap.orig
 wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/hmlangw
 wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw
+wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap
 chmod 755 /usr/local/addons/hmlangw
 chmod 755 /etc/init.d/S61hmlangw
-mv /firmware/fwmap /firmware/fwmap.orig
-wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap
+/etc/init.d/S70ReGaHss stop
+/etc/init.d/S62HMServer stop
+/etc/init.d/S61rfd stop
+/etc/init.d/S60multimacd stop
 eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -u -d /firmware
-```
-
-- _Test (vorher alle Dienste beenden, die aufs Funkmodul zugreifen) mit_<br/>
-`/usr/local/addons/hmlangw -D -n CCU2GW0001 -s /dev/mxs_auart_raw.0 -r -1`
-
-```
 export UNUSEDDIR=/etc/init.d_unused/
 mkdir ${UNUSEDDIR}
 mv /etc/init.d/S49hs485d ${UNUSEDDIR}
@@ -30,6 +28,11 @@ mv /etc/init.d/S62HMServer ${UNUSEDDIR}
 mv /etc/init.d/S70ReGaHss ${UNUSEDDIR}
 reboot
 ```
+
+- _manueller Aufruf mit Debug-Option_ <br/>
+`/usr/local/addons/hmlangw -D -n CCU2GW0001 -s /dev/mxs_auart_raw.0 -r -1`
+
+
 
 <hr/>
 
