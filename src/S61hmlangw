@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Start CCU2 LAN Gateway
+#
+
+SERIAL=CCU2LANGW1
+RFDEVICE=/dev/mxs_auart_raw.0
+HMLANGW_PATH=/usr/local/addons/hmlangw
+
+start() {
+  echo -n "Starting LAN Gateway Daemon: "
+  start-stop-daemon -S -b -m -p /var/run/hmlangw.pid --startas /bin/sh -- -c "exec ${HMLANGW_PATH} -D -n ${SERIAL} -s ${RFDEVICE} -r -1 >/var/log/hmlangw.log 2>&1"
+  [[ $? -eq 0 ]] && echo "OK" || echo "ERROR"
+}
+
+stop() {
+  echo -n "Stopping LAN Gateway Daemon: "
+  start-stop-daemon -K -q -o -p /var/run/hmlangw.pid
+  [[ $? -eq 0 ]] && ( rm -f /var/run/hmlangw.pid && echo "OK" ) || echo "ERROR"
+}
+
+restart() {
+  stop
+  start
+}
+
+
+case "$1" in
+  start)
+    start
+  ;;
+
+  stop)
+    stop
+  ;;
+
+  restart|reload)
+    restart
+  ;;
+
+  *)
+    echo "Usage: $0 {start|stop|restart|reload}"
+    exit 1
+esac
+
+exit $?
