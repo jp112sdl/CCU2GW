@@ -47,6 +47,37 @@ reboot
 
 <hr/>
 
+Rückgängig machen (CCU2 wieder als CCU2 nutzen):
+
+```
+# Dienst stoppen
+/etc/init.d/S61hmlangw stop
+
+# Init-Skripte verschieben und Dateien löschen
+export UNUSEDDIR=/etc/init.d_unused/
+mv ${UNUSEDDIR}S49hs485d /etc/init.d/
+mv ${UNUSEDDIR}S50lighttpd /etc/init.d/
+mv ${UNUSEDDIR}S55cuxd /etc/init.d/
+mv ${UNUSEDDIR}S58LGWFirmwareUpdate /etc/init.d/
+mv ${UNUSEDDIR}S59SetLGWKey /etc/init.d/
+mv ${UNUSEDDIR}S60hs485d /etc/init.d/
+mv ${UNUSEDDIR}S60multimacd /etc/init.d/
+mv ${UNUSEDDIR}S61rfd /etc/init.d/
+mv ${UNUSEDDIR}S62HMServer /etc/init.d/
+mv ${UNUSEDDIR}S70ReGaHss /etc/init.d/
+rmdir ${UNUSEDDIR}
+rm /etc/init.d/S61hmlangw
+rm /usr/local/addons/hmlangw
+rm /usr/local/addons/serialnumber.txt
+mv /firmware/fwmap.orig /firmware/fwmap
+
+# Neustart durchführen
+reboot
+```
+
+<hr/>
+
+
 ### selbst kompilieren:
 #### Debian (9)
 - `apt-get update`
