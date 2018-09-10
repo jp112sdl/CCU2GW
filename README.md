@@ -2,7 +2,7 @@
 
 #### auf CCU2:
 - `mount -o remount,rw /`
-- `wget --no-check-certificate -q -O /usr/local/addons/hmlangw "https://github-production-release-asset-2e65be.s3.amazonaws.com/148149605/ad310380-b503-11e8-995e-3784f393e13c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2
+- `wget --no-check-certificate  -O /usr/local/addons/hmlangw "https://github-production-release-asset-2e65be.s3.amazonaws.com/148149605/ad310380-b503-11e8-995e-3784f393e13c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2
 F20180910%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180910T160902Z&X-Amz-Expires=300&X-Amz-Signature=aacff9924a4814ee5d7ad613deb7b327975d95e420d9ecb46c861d7b1fb37ac4&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment
 %3B%20filename%3Dhmlangw&response-content-type=application%2Foctet-stream"`
 - `wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw`
