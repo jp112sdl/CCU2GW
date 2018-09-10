@@ -3,7 +3,7 @@
 # Start CCU2 LAN Gateway
 #
 
-SERIAL=CCU2LANGW1
+SERIAL=CCU2GW0001
 RFDEVICE=/dev/mxs_auart_raw.0
 HMLANGW_PATH=/usr/local/addons/hmlangw
 
