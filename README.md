@@ -19,7 +19,7 @@ CCU2                    coprocessor_update_hm_only.eq3                1.4.1     
 `eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -u -d /firmware`
 
 - _Test (vorher alle Dienste beenden, die aufs Funkmodul zugreifen) mit_<br/>
-`/usr/local/addons/hmlangw -D -n CCU2LANGW1 -s /dev/mxs_auart_raw.0 -r -1`
+`/usr/local/addons/hmlangw -D -n CCU2GW0001 -s /dev/mxs_auart_raw.0 -r -1`
 
 ```
 export UNUSEDDIR=/etc/init.d_unused/
