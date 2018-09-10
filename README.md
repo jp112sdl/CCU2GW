@@ -1,25 +1,13 @@
 # CCU2GW - use ccu2 as lan gateway
 
+### fertig kompilierte binary nutzen:
 #### CCU2
-mount -o remount,rw /
+- `mount -o remount,rw`
+- `wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://github.com/jp112sdl/CCU2GW/releases/download/0.0.1/hmlangw`
+- `wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw`
+- `chmod 755 /usr/local/addons/hmlangw`
+- `chmod 755 /etc/init.d/S61hmlangw`
 
-#### Debian (9)
-- apt-get update
-- apt-get install libgcc-6-dev-armel-cross gcc-arm-linux-gnueabi g++-arm-linux-gnueabi libgcc1-armel-cross
-
-- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmlangw.cpp
-- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmframe.cpp
-- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmframe.h
-- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/Makefile
-- wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw
-
-- make
-
-- scp hmlangw root@ccu2:/usr/local/addons/
-- scp S61hmlangw root@ccu2:/etc/init.d/
-
-
-#### CCU2
 - Funkmodul FW Version anzeigen:<br/>
 `eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -v -d /firmware`
 
@@ -47,7 +35,19 @@ mv /etc/init.d/S60multimacd ${UNUSEDDIR}
 mv /etc/init.d/S61rfd ${UNUSEDDIR}
 mv /etc/init.d/S62HMServer ${UNUSEDDIR}
 mv /etc/init.d/S70ReGaHss ${UNUSEDDIR}
-
-chmod 755 /etc/init.d/S61hmlangw
 reboot
 ```
+
+### selbst kompilieren:
+#### Debian (9)
+- `apt-get update`
+- `apt-get install libgcc-6-dev-armel-cross gcc-arm-linux-gnueabi g++-arm-linux-gnueabi libgcc1-armel-cross`
+
+- `wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmlangw.cpp`
+- `wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmframe.cpp`
+- `wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmframe.h`
+- `wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/Makefile`
+- `wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw`
+
+- `make`
+
