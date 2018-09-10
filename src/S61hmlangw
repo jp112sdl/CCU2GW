@@ -9,7 +9,7 @@ HMLANGW_PATH=/usr/local/addons/hmlangw
 
 start() {
   echo -n "Starting LAN Gateway Daemon: "
-  start-stop-daemon -S -b -m -p /var/run/hmlangw.pid --startas /bin/sh -- -c "exec ${HMLANGW_PATH} -D -n ${SERIAL} -s ${RFDEVICE} -r -1 >/var/log/hmlangw.log 2>&1"
+  start-stop-daemon -S -b -m -p /var/run/hmlangw.pid --startas /bin/sh -- -c "exec ${HMLANGW_PATH} -n ${SERIAL} -s ${RFDEVICE} -r -1 >/var/log/hmlangw.log 2>&1"
   [[ $? -eq 0 ]] && echo "OK" || echo "ERROR"
 }
 
