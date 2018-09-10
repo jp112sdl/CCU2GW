@@ -2,18 +2,27 @@
 
 #### auf CCU2:
 ```
+# Dateisystem read/write mounten
 mount -o remount,rw /
+
+# Dateien herunterladen und Rechte anpassen
 mv /firmware/fwmap /firmware/fwmap.orig
 wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/hmlangw
 wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw
 wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap
 chmod 755 /usr/local/addons/hmlangw
 chmod 755 /etc/init.d/S61hmlangw
+
+# Laufende Dienste stoppen
 /etc/init.d/S70ReGaHss stop
 /etc/init.d/S62HMServer stop
 /etc/init.d/S61rfd stop
 /etc/init.d/S60multimacd stop
+
+# Funkmodul Firmware auf 1.4.1 updaten
 eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -u -d /firmware
+
+# Init-Skripte verschieben
 export UNUSEDDIR=/etc/init.d_unused/
 mkdir ${UNUSEDDIR}
 mv /etc/init.d/S49hs485d ${UNUSEDDIR}
@@ -26,6 +35,8 @@ mv /etc/init.d/S60multimacd ${UNUSEDDIR}
 mv /etc/init.d/S61rfd ${UNUSEDDIR}
 mv /etc/init.d/S62HMServer ${UNUSEDDIR}
 mv /etc/init.d/S70ReGaHss ${UNUSEDDIR}
+
+# Neustart durchführen
 reboot
 ```
 
