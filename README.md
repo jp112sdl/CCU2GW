@@ -6,6 +6,8 @@
 - `wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw`
 - `chmod 755 /usr/local/addons/hmlangw`
 - `chmod 755 /etc/init.d/S61hmlangw`
+- `mv /firmware/fwmap /firmware/fwmap.orig`
+- `wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap`
 
 - Funkmodul FW Version anzeigen:<br/>
 `eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -v -d /firmware`
