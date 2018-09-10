@@ -44,7 +44,7 @@ Einbinden in Zentrale (an `/etc/config/rfd.conf` anhängen):
 Type = HMLGW2
 Name = Test Interface
 Description = Test Interface
-Serial Number = CCU2LANGW1
+Serial Number = CCU2GW0001
 IP Address = x.x.x.x
 ```
 
