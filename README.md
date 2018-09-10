@@ -1,4 +1,4 @@
-# CCU2GW - use ccu2 as lan gateway
+# CCU2GW - use ccu2 as lan gateway [![Github All Releases](https://img.shields.io/github/downloads/jp112sdl/CCU2GW/total.svg)](https://github.com/jp112sdl/CCU2GW/releases) 
 
 ### fertig kompilierte binary nutzen:
 #### auf CCU2:
