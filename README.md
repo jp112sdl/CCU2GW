@@ -1,7 +1,7 @@
 # CCU2GW - use ccu2 as lan gateway
 
 ### fertig kompilierte binary nutzen:
-#### CCU2
+#### auf CCU2:
 - `mount -o remount,rw`
 - `wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://github.com/jp112sdl/CCU2GW/releases/download/0.0.1/hmlangw`
 - `wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw`
@@ -48,6 +48,8 @@ Serial Number = CCU2LANGW1
 IP Address = x.x.x.x
 ```
 
+<hr/>
+
 ### selbst kompilieren:
 #### Debian (9)
 - `apt-get update`
@@ -60,4 +62,3 @@ IP Address = x.x.x.x
 - `wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw`
 
 - `make`
-
