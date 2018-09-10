@@ -37,17 +37,6 @@ mv /etc/init.d/S70ReGaHss ${UNUSEDDIR}
 reboot
 ```
 
-Einbinden in Zentrale (an `/etc/config/rfd.conf` anhängen):
-```
-[Interface 4]
-Type = HMLGW2
-Name = Test Interface
-Description = Test Interface
-Serial Number = CCU2GW0001
-IP Address = x.x.x.x
-```
-siehe auch https://homematic-forum.de/forum/viewtopic.php?f=18&t=27705
-
 <hr/>
 
 ### selbst kompilieren:
