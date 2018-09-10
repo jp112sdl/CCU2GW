@@ -47,6 +47,7 @@ Description = Test Interface
 Serial Number = CCU2GW0001
 IP Address = x.x.x.x
 ```
+siehe auch https://homematic-forum.de/forum/viewtopic.php?f=18&t=27705
 
 <hr/>
 
