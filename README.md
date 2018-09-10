@@ -38,6 +38,16 @@ mv /etc/init.d/S70ReGaHss ${UNUSEDDIR}
 reboot
 ```
 
+Einbinden in Zentrale (an `/etc/config/rfd.conf` anhängen):
+```
+[Interface 4]
+Type = HMLGW2
+Name = Test Interface
+Description = Test Interface
+Serial Number = CCU2LANGW1
+IP Address = x.x.x.x
+```
+
 ### selbst kompilieren:
 #### Debian (9)
 - `apt-get update`
