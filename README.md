@@ -1,24 +1,16 @@
 # CCU2GW - use ccu2 as lan gateway [![Github All Releases](https://img.shields.io/github/downloads/jp112sdl/CCU2GW/total.svg)](https://github.com/jp112sdl/CCU2GW/releases) 
 
 #### auf CCU2:
-- `mount -o remount,rw /`
-- `wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/hmlangw`
-- `wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw`
-- `chmod 755 /usr/local/addons/hmlangw`
-- `chmod 755 /etc/init.d/S61hmlangw`
-- `mv /firmware/fwmap /firmware/fwmap.orig`
-- `wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap`
-
-- Funkmodul FW Version anzeigen:<br/>
-`eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -v -d /firmware`
-
-- /firmware/fwmap editieren; 1.4.1 muss aktiv sein<br/>
 ```
-#CCU2                    coprocessor_update.eq3                          2.8.6          # Dual CoProzessor CCU2
-CCU2                    coprocessor_update_hm_only.eq3                1.4.1          # HM only CoProzessor CCU2
+mount -o remount,rw /
+wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/hmlangw
+wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/S61hmlangw
+chmod 755 /usr/local/addons/hmlangw
+chmod 755 /etc/init.d/S61hmlangw
+mv /firmware/fwmap /firmware/fwmap.orig
+wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap
+eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -u -d /firmware
 ```
-- anschließend FW-Downgrade durchführen:<br/>
-`eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -u -d /firmware`
 
 - _Test (vorher alle Dienste beenden, die aufs Funkmodul zugreifen) mit_<br/>
 `/usr/local/addons/hmlangw -D -n CCU2GW0001 -s /dev/mxs_auart_raw.0 -r -1`
