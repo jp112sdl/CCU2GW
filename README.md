@@ -23,20 +23,26 @@ chmod 755 /etc/init.d/S61hmlangw
 eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -u -d /firmware
 
 # Init-Skripte verschieben
-export UNUSEDDIR=/etc/init.d_unused/
-mkdir ${UNUSEDDIR}
-mv /etc/init.d/S49hs485d ${UNUSEDDIR}
-mv /etc/init.d/S50lighttpd ${UNUSEDDIR}
-mv /etc/init.d/S55cuxd ${UNUSEDDIR}
-mv /etc/init.d/S58LGWFirmwareUpdate ${UNUSEDDIR}
-mv /etc/init.d/S59SetLGWKey ${UNUSEDDIR}
-mv /etc/init.d/S60hs485d ${UNUSEDDIR}
-mv /etc/init.d/S60multimacd ${UNUSEDDIR}
-mv /etc/init.d/S61rfd ${UNUSEDDIR}
-mv /etc/init.d/S62HMServer ${UNUSEDDIR}
-mv /etc/init.d/S70ReGaHss ${UNUSEDDIR}
+export INITDIR=/etc/init.d/
+export UNUSED_INITDIR=/etc/init.d_unused/
+mkdir ${UNUSED_INITDIR}
+mv ${INITDIR}S49hs485d ${UNUSED_INITDIR}
+mv ${INITDIR}S50lighttpd ${UNUSED_INITDIR}
+mv ${INITDIR}S55cuxd ${UNUSED_INITDIR}
+mv ${INITDIR}S58LGWFirmwareUpdate ${UNUSED_INITDIR}
+mv ${INITDIR}S59SetLGWKey ${UNUSED_INITDIR}
+mv ${INITDIR}S60hs485d ${UNUSED_INITDIR}
+mv ${INITDIR}S60multimacd ${UNUSED_INITDIR}
+mv ${INITDIR}S61rfd ${UNUSED_INITDIR}
+mv ${INITDIR}S62HMServer ${UNUSED_INITDIR}
+mv ${INITDIR}S70ReGaHss ${UNUSED_INITDIR}
+
+mv /usr/local/etc/config/rc.d /usr/local/etc/config/rc.d_unused
+
+mv /opt/mh/startup.sh /opt/mh/startup.sh_unused
 
 # Neustart durchführen
+sync
 reboot
 ```
 
@@ -44,34 +50,42 @@ reboot
 `/usr/local/addons/hmlangw -D -n CCU2GW0001 -s /dev/mxs_auart_raw.0 -r -1`
 
 
-
 <hr/>
 
 Rückgängig machen (CCU2 wieder als CCU2 nutzen):
 
 ```
+# Dateisystem read/write mounten
+mount -o remount,rw /
+
 # Dienst stoppen
 /etc/init.d/S61hmlangw stop
 
 # Init-Skripte verschieben und Dateien löschen
-export UNUSEDDIR=/etc/init.d_unused/
-mv ${UNUSEDDIR}S49hs485d /etc/init.d/
-mv ${UNUSEDDIR}S50lighttpd /etc/init.d/
-mv ${UNUSEDDIR}S55cuxd /etc/init.d/
-mv ${UNUSEDDIR}S58LGWFirmwareUpdate /etc/init.d/
-mv ${UNUSEDDIR}S59SetLGWKey /etc/init.d/
-mv ${UNUSEDDIR}S60hs485d /etc/init.d/
-mv ${UNUSEDDIR}S60multimacd /etc/init.d/
-mv ${UNUSEDDIR}S61rfd /etc/init.d/
-mv ${UNUSEDDIR}S62HMServer /etc/init.d/
-mv ${UNUSEDDIR}S70ReGaHss /etc/init.d/
-rmdir ${UNUSEDDIR}
+export INITDIR=/etc/init.d/
+export UNUSED_INITDIR=/etc/init.d_unused/
+mv ${UNUSED_INITDIR}S49hs485d ${INITDIR}
+mv ${UNUSED_INITDIR}S50lighttpd ${INITDIR}
+mv ${UNUSED_INITDIR}S55cuxd ${INITDIR}
+mv ${UNUSED_INITDIR}S58LGWFirmwareUpdate ${INITDIR}
+mv ${UNUSED_INITDIR}S59SetLGWKey ${INITDIR}
+mv ${UNUSED_INITDIR}S60hs485d ${INITDIR}
+mv ${UNUSED_INITDIR}S60multimacd ${INITDIR}
+mv ${UNUSED_INITDIR}S61rfd ${INITDIR}
+mv ${UNUSED_INITDIR}S62HMServer ${INITDIR}
+mv ${UNUSED_INITDIR}S70ReGaHss ${INITDIR}
+rmdir ${UNUSED_INITDIR}
 rm /etc/init.d/S61hmlangw
 rm /usr/local/addons/hmlangw
 rm /usr/local/addons/serialnumber.txt
 mv /firmware/fwmap.orig /firmware/fwmap
 
+mv /usr/local/etc/config/rc.d_unused /usr/local/etc/config/rc.d
+
+mv /opt/mh/startup.sh_unused /opt/mh/startup.sh
+
 # Neustart durchführen
+sync
 reboot
 ```
 
