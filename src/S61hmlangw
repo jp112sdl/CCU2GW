@@ -10,13 +10,13 @@ HMLANGW_PATH=/usr/local/addons/hmlangw
 start() {
   echo -n "Starting LAN Gateway Daemon: "
   start-stop-daemon -S -b -m -p /var/run/hmlangw.pid --startas /bin/sh -- -c "exec ${HMLANGW_PATH} -n ${SERIAL} -s ${RFDEVICE} -r -1 >/var/log/hmlangw.log 2>&1"
-  [[ $? -eq 0 ]] && echo "OK" || echo "ERROR"
+  [[ $? -eq 0 ]] && (echo "OK" && echo 255 > /sys/class/leds/info/brightness) || ( echo "ERROR" && echo timer > /sys/class/leds/info/trigger)
 }
 
 stop() {
   echo -n "Stopping LAN Gateway Daemon: "
   start-stop-daemon -K -q -o -p /var/run/hmlangw.pid
-  [[ $? -eq 0 ]] && ( rm -f /var/run/hmlangw.pid && echo "OK" ) || echo "ERROR"
+  [[ $? -eq 0 ]] && ( rm -f /var/run/hmlangw.pid && echo "OK" && echo 0 > /sys/class/leds/info/brightness) || (echo "ERROR" && echo timer > /sys/class/leds/info/trigger)
 }
 
 restart() {
