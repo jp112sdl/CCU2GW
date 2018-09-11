@@ -3,13 +3,11 @@
 # Start CCU2 LAN Gateway
 #
 
-SERIAL=CCU2GW0001
-RFDEVICE=/dev/mxs_auart_raw.0
 HMLANGW_PATH=/usr/local/addons/hmlangw
 
 start() {
   echo -n "Starting LAN Gateway Daemon: "
-  start-stop-daemon -S -b -m -p /var/run/hmlangw.pid --startas /bin/sh -- -c "exec ${HMLANGW_PATH} -n ${SERIAL} -s ${RFDEVICE} -r -1 >/var/log/hmlangw.log 2>&1"
+  start-stop-daemon -S -b -m -p /var/run/hmlangw.pid --startas /bin/sh -- -c "exec ${HMLANGW_PATH} -r -1 >/var/log/hmlangw.log 2>&1"
   [[ $? -eq 0 ]] && (echo "OK" && echo 255 > /sys/class/leds/info/brightness) || ( echo "ERROR" && echo timer > /sys/class/leds/info/trigger)
 }
 
