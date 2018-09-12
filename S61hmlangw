@@ -4,10 +4,11 @@
 #
 
 HMLANGW_PATH=/usr/local/addons/hmlangw
+SERIALNUMBER_FILE=/usr/local/addons/serialnumber.txt
 
 start() {
   echo -n "Starting LAN Gateway Daemon: "
-  [[ ! -e /usr/local/addons/serialnumber.txt ]] && (echo CCU2GW0001  > /usr/local/addons/serialnumber.txt && echo "new CCU2GW0001 serialnumber.txt created")
+  [[ ! -e ${SERIALNUMBER_FILE} ]] && (echo CCU2GW0001 > ${SERIALNUMBER_FILE} && echo "new CCU2GW0001 serialnumber.txt created")
   start-stop-daemon -S -b -m -p /var/run/hmlangw.pid --startas /bin/sh -- -c "exec ${HMLANGW_PATH} -n read -r -1 >/var/log/hmlangw.log 2>&1"
   [[ $? -eq 0 ]] && (echo "OK" && echo 255 > /sys/class/leds/info/brightness) || ( echo "ERROR" && echo timer > /sys/class/leds/info/trigger)
 }
