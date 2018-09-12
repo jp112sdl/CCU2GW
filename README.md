@@ -49,6 +49,9 @@ echo XXXXXXXXXX > /usr/local/addons/serialnumber.txt
 # Neustart durchführen
 sync
 reboot
+
+# - wenn das LAN-Gateway erfolgreich gestartet wurde, leuchtet die Info-LED dauerhaft
+# - die Standard-Seriennummer lautet CCU2GW0001
 ```
 
 - _manueller Aufruf mit Debug-Option_ <br/>
