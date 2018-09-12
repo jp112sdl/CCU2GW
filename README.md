@@ -7,10 +7,9 @@ mount -o remount,rw /
 
 # Dateien herunterladen und Rechte anpassen
 mv /firmware/fwmap /firmware/fwmap.orig
-wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/dev/fwmap
-wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/dev/hmlangw
-wget --no-check-certificate -q -O /usr/local/addons/serialnumber.txt https://raw.githubusercontent.com/jp112sdl/CCU2GW/dev/serialnumber.txt
-wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/dev/S61hmlangw
+wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap
+wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/hmlangw
+wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/S61hmlangw
 chmod 755 /usr/local/addons/hmlangw
 chmod 755 /etc/init.d/S61hmlangw
 
