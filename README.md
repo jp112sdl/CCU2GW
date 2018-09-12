@@ -105,9 +105,7 @@ reboot
 ```
 apt-get update
 apt-get install libgcc-6-dev-armel-cross gcc-arm-linux-gnueabi g++-arm-linux-gnueabi libgcc1-armel-cross
-wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmlangw.cpp
-wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmframe.cpp
-wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/hmframe.h
-wget https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/src/Makefile
+git clone https://github.com/jp112sdl/CCU2GW/
+cd CCU2GW/src
 make
 ```
