@@ -26,7 +26,7 @@ eq3configcmd update-coprocessor -p /dev/mxs_auart_raw.0 -c -u -d /firmware
 # Init-Skripte verschieben
 export INITDIR=/etc/init.d/
 export UNUSED_INITDIR=/etc/init.d_unused/
-mkdir ${UNUSED_INITDIR}
+mkdir -p ${UNUSED_INITDIR}
 mv ${INITDIR}S49hs485d ${UNUSED_INITDIR}
 mv ${INITDIR}S50lighttpd ${UNUSED_INITDIR}
 mv ${INITDIR}S55cuxd ${UNUSED_INITDIR}
