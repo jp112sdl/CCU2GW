@@ -1,6 +1,6 @@
 # CCU2GW - use ccu2 as lan gateway
 
-#### auf CCU2:
+#### auf CCU2 per SSH anmelden und folgende Befehle ausführen:
 ```
 # Dateisystem read/write mounten
 mount -o remount,rw /
@@ -40,6 +40,11 @@ mv ${INITDIR}S70ReGaHss ${UNUSED_INITDIR}
 mv /usr/local/etc/config/rc.d /usr/local/etc/config/rc.d_unused
 
 mv /opt/mh/startup.sh /opt/mh/startup.sh_unused
+
+# optional: 
+# Seriennummer-Datei anlegen (nur notwendig wenn eine andere Seriennummer als CCU2GW0001 gewünscht wird)
+# XXXXXXXXXX ändern in 10-stellige Seriennummer
+echo XXXXXXXXXX > /usr/local/addons/serialnumber.txt
 
 # Neustart durchführen
 sync
