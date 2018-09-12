@@ -688,11 +688,11 @@ void hmlangw_syntax(char *prog)
 	fprintf(stderr, "\t\tSaves it to serialnumber.txt for later use\n");
 	fprintf(stderr, "\t-n show\tShow 10-digit serial number of HM-MOD-RPI\n");
 	fprintf(stderr, "\t-n auto\tUses 10-digit serial number of HM-MOD-RPI\n");
-	fprintf(stderr, "\t\tReads serial number to serialnumber.txt, if possible\n");
+	fprintf(stderr, "\t\tReads serial number from serialnumber.txt, if possible\n");
 	fprintf(stderr, "\t\tSaves serial number to serialnumber.txt, if possible\n");
 	fprintf(stderr, "\t-n read\tUses 10-digit serial number from serialnumber.txt\n");
 	fprintf(stderr, "\t-n save\tSaves 10-digit serial number to serialnumber.txt\n");
-	fprintf(stderr, "\t-s\tname of serial device to use. Default is /dev/ttyAMA0\n");
+	fprintf(stderr, "\t-s\tname of serial device to use. Default is /dev/mxs_auart_raw.0\n");
 	fprintf(stderr, "\t-r\tHM-MOD-RPI reset GPIO pin (default 18, -1 to disable)\n");
 	fprintf(stderr, "\t-D\tdebug mode\n");
 	fprintf(stderr, "\t-x\texecute HM-MOD-RPI reset and exit\n");
@@ -762,7 +762,7 @@ static bool putSerialNumberToFile( char *serialNumber )
 
 int main(int argc, char **argv)
 {
-    const char *serialName = "/dev/ttyAMA0";
+    const char *serialName = "/dev/mxs_auart_raw.0";
     int bidcosPort = 2000;
     int keepalivePort = 2001;
     int resetPort = 18;
@@ -887,7 +887,7 @@ int main(int argc, char **argv)
     if( g_debug )
         fprintf( stderr,  "serial fd %d name %s\n", g_serialFd, serialName );
         
-    if( strcmp( serialName, "/dev/ttyAMA0" ) )
+    if( strcmp( serialName, "/dev/mxs_auart_raw.0" ) )
     {
         resetPort = -1;
     }
@@ -943,8 +943,8 @@ int main(int argc, char **argv)
             FILE *file;
             strcat( path, "eq3" );
             // printf( "Path %s\n", path );
-            sprintf( cmdBuf, "/lib/ld-linux.so.3 --library-path %s/lib %s/bin/eq3configcmd update-coprocessor -p %s %s -c -l 2 -d %s/firmware -t HM-MOD-UART 2> %s",
-                path, path, serialName, cmd, path, tmp );
+            sprintf( cmdBuf, "/lib/ld-linux.so.3 --library-path /lib /bin/eq3configcmd update-coprocessor -p %s %s -c -l 2 -d /firmware -t HM-MOD-UART 2> %s",
+                serialName, cmd, tmp );
             system( cmdBuf );
             file = fopen( tmp, "r" );
             if( 0 != file )

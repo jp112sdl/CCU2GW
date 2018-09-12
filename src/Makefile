@@ -22,6 +22,10 @@ hmlangw:	hmlangw.o hmframe.o
 .c.o:
 	$(CC) -c $(CFLAGS) $<
 
+clean:
+	rm -f hmlangw
+	rm -f hmlangw.o hmframe.o
+
    
 # DO NOT DELETE
 

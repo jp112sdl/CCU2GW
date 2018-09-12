@@ -1,6 +1,6 @@
 # CCU2GW - use ccu2 as lan gateway
 
-#### auf CCU2:
+#### auf CCU2 per SSH anmelden und folgende Befehle ausführen:
 ```
 # Dateisystem read/write mounten
 mount -o remount,rw /
@@ -41,9 +41,17 @@ mv /usr/local/etc/config/rc.d /usr/local/etc/config/rc.d_unused
 
 mv /opt/mh/startup.sh /opt/mh/startup.sh_unused
 
+# optional: 
+# Seriennummer-Datei anlegen (nur notwendig wenn eine andere Seriennummer als CCU2GW0001 gewünscht wird)
+# XXXXXXXXXX ändern in 10-stellige Seriennummer
+echo XXXXXXXXXX > /usr/local/addons/serialnumber.txt
+
 # Neustart durchführen
 sync
 reboot
+
+# - wenn das LAN-Gateway erfolgreich gestartet wurde, leuchtet die Info-LED dauerhaft
+# - die Standard-Seriennummer lautet CCU2GW0001
 ```
 
 - _manueller Aufruf mit Debug-Option_ <br/>
