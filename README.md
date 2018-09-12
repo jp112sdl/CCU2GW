@@ -14,9 +14,6 @@ wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubuserc
 chmod 755 /usr/local/addons/hmlangw
 chmod 755 /etc/init.d/S61hmlangw
 
-# Datei mit Seriennummer CCU2GW0001 für Gateway anlegen
-echo CCU2GW0001 > /usr/local/addons/serialnumber.txt
-
 # Laufende Dienste stoppen
 /etc/init.d/S70ReGaHss stop
 /etc/init.d/S62HMServer stop
