@@ -6,6 +6,7 @@
 mount -o remount,rw /
 
 # Dateien herunterladen und Rechte anpassen
+mkdir -p /usr/local/addons/
 mv /firmware/fwmap /firmware/fwmap.orig
 wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap
 wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/hmlangw
