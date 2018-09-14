@@ -39,6 +39,7 @@ mv ${INITDIR}S60multimacd ${UNUSED_INITDIR}
 mv ${INITDIR}S61rfd ${UNUSED_INITDIR}
 mv ${INITDIR}S62HMServer ${UNUSED_INITDIR}
 mv ${INITDIR}S70ReGaHss ${UNUSED_INITDIR}
+mv /bin/hss_led /bin/hss_led_unused
 
 mv /usr/local/etc/config/rc.d /usr/local/etc/config/rc.d_unused
 
@@ -84,6 +85,7 @@ mv ${UNUSED_INITDIR}S60multimacd ${INITDIR}
 mv ${UNUSED_INITDIR}S61rfd ${INITDIR}
 mv ${UNUSED_INITDIR}S62HMServer ${INITDIR}
 mv ${UNUSED_INITDIR}S70ReGaHss ${INITDIR}
+mv /bin/hss_led_unused /bin/hss_led
 rmdir ${UNUSED_INITDIR}
 rm /etc/init.d/S61hmlangw
 rm /usr/local/addons/hmlangw
