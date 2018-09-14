@@ -51,11 +51,9 @@ echo XXXXXXXXXX > /usr/local/addons/serialnumber.txt
 # Neustart durchführen
 sync
 reboot
-
-# - wenn das LAN-Gateway erfolgreich gestartet wurde, leuchtet die Info-LED dauerhaft
-# - die Standard-Seriennummer lautet CCU2GW0001
 ```
-
+- wenn das LAN-Gateway erfolgreich gestartet wurde, leuchtet die Info-LED dauerhaft
+- die Standard-Seriennummer lautet CCU2GW0001
 - _manueller Aufruf mit Debug-Option_ <br/>
 `/usr/local/addons/hmlangw -D -n CCU2GW0001 -s /dev/mxs_auart_raw.0 -r -1`
 
