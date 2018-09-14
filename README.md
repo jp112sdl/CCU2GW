@@ -74,7 +74,7 @@ export INITDIR=/etc/init.d/
 export UNUSED_INITDIR=/etc/init.d_unused/
 mv ${UNUSED_INITDIR}S49hs485d ${INITDIR}
 mv ${UNUSED_INITDIR}S50lighttpd ${INITDIR}
-[[ -e ${INITDIR}S55cuxd ]] && mv ${UNUSED_INITDIR}S55cuxd ${INITDIR}
+[[ -e ${UNUSED_INITDIR}S55cuxd ]] && mv ${UNUSED_INITDIR}S55cuxd ${INITDIR}
 mv ${UNUSED_INITDIR}S58LGWFirmwareUpdate ${INITDIR}
 mv ${UNUSED_INITDIR}S59SetLGWKey ${INITDIR}
 mv ${UNUSED_INITDIR}S60hs485d ${INITDIR}
