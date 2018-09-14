@@ -30,6 +30,7 @@ export UNUSED_INITDIR=/etc/init.d_unused/
 mkdir -p ${UNUSED_INITDIR}
 mv ${INITDIR}S49hs485d ${UNUSED_INITDIR}
 mv ${INITDIR}S50lighttpd ${UNUSED_INITDIR}
+mv ${INITDIR}S50eq3configd ${UNUSED_INITDIR}
 [[ -e ${INITDIR}S55cuxd ]] && mv ${INITDIR}S55cuxd ${UNUSED_INITDIR}
 mv ${INITDIR}S58LGWFirmwareUpdate ${UNUSED_INITDIR}
 mv ${INITDIR}S59SetLGWKey ${UNUSED_INITDIR}
@@ -74,6 +75,7 @@ export INITDIR=/etc/init.d/
 export UNUSED_INITDIR=/etc/init.d_unused/
 mv ${UNUSED_INITDIR}S49hs485d ${INITDIR}
 mv ${UNUSED_INITDIR}S50lighttpd ${INITDIR}
+mv ${UNUSED_INITDIR}S50eq3configd ${INITDIR}
 [[ -e ${UNUSED_INITDIR}S55cuxd ]] && mv ${UNUSED_INITDIR}S55cuxd ${INITDIR}
 mv ${UNUSED_INITDIR}S58LGWFirmwareUpdate ${INITDIR}
 mv ${UNUSED_INITDIR}S59SetLGWKey ${INITDIR}
