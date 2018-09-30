@@ -72,6 +72,7 @@ mount -o remount,rw /
 /etc/init.d/S61hmlangw stop
 
 # Init-Skripte verschieben und Dateien löschen
+mv /usr/local/etc/config/rc.d_unused /usr/local/etc/config/rc.d
 export INITDIR=/etc/init.d/
 export UNUSED_INITDIR=/etc/init.d_unused/
 mv ${UNUSED_INITDIR}S49hs485d ${INITDIR}
@@ -91,8 +92,6 @@ rm /etc/init.d/S61hmlangw
 rm /usr/local/addons/hmlangw
 rm /usr/local/addons/serialnumber.txt
 mv /firmware/fwmap.orig /firmware/fwmap
-
-mv /usr/local/etc/config/rc.d_unused /usr/local/etc/config/rc.d
 
 mv /opt/mh/startup.sh_unused /opt/mh/startup.sh
 
