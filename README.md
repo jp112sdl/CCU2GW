@@ -1,7 +1,7 @@
 # CCU2GW - use ccu2 as lan gateway 
 ## (only HM RF (like the [HM-LGW-O-TW-W-EU](https://www.elv.de/homematic-funk-lan-gateway.html)) - no HmIP!)
 
-#### auf CCU2 per SSH anmelden und folgende Befehle ausführen:
+#### auf CCU2 per SSH anmelden und folgende Befehle ausführen (Internetverbindung muss vorhanden sein!):
 ```
 # Dateisystem read/write mounten
 mount -o remount,rw /
