@@ -1,5 +1,11 @@
-# CCU2GW - use ccu2 as lan gateway 
-## (only HM RF (like the [HM-LGW-O-TW-W-EU](https://www.elv.de/homematic-funk-lan-gateway.html)) - no HmIP!)
+# CCU2GW - CCU2 als LAN Gateway verwenden!
+## (nur HM RF (wie das [HM-LGW-O-TW-W-EU](https://www.elv.de/homematic-funk-lan-gateway.html)) - kein HmIP!)
+
+<hr/>
+
+#### Achtung: Beim Hinzufügen des GW in der WebUI-Konfiguration unbedingt die IP des Gateways mit angeben (trotz des Hinweis _(optional)_), um eine stabile Verbindung zu garantieren.
+
+<hr/>
 
 #### auf CCU2 per SSH anmelden und folgende Befehle ausführen (Internetverbindung muss vorhanden sein!):
 ```
