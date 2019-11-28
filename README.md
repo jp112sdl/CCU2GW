@@ -8,6 +8,10 @@ _getestet mit CCU2 FW [2.35.16](https://www.eq-3.de/service/downloads.html?id=28
 
 <hr/>
 
+Fragen bitte im [Homematic Forum](https://homematic-forum.de/forum/viewtopic.php?f=43&t=45328) stellen.
+
+<hr/>
+
 #### auf CCU2 per SSH anmelden und folgende Befehle ausführen (Internetverbindung muss vorhanden sein!):
 ```
 # Dateisystem read/write mounten
