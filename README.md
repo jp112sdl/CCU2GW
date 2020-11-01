@@ -23,6 +23,7 @@ mv /firmware/fwmap /firmware/fwmap.orig
 wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap
 wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/hmlangw
 wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/S61hmlangw
+wget --no-check-certificate -q -O /tmp/crontab https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/crontab
 chmod 755 /usr/local/addons/hmlangw
 chmod 755 /etc/init.d/S61hmlangw
 
@@ -51,6 +52,7 @@ mv ${INITDIR}S61rfd ${UNUSED_INITDIR}
 mv ${INITDIR}S62HMServer ${UNUSED_INITDIR}
 mv ${INITDIR}S70ReGaHss ${UNUSED_INITDIR}
 mv /bin/hss_led /bin/hss_led_unused
+mv /usr/local/crontabs/root /usr/local/crontabs/root_unused
 
 mv /usr/local/etc/config/rc.d /usr/local/etc/config/rc.d_unused
 
@@ -61,11 +63,14 @@ mv /opt/mh/startup.sh /opt/mh/startup.sh_unused
 # XXXXXXXXXX ändern in 10-stellige Seriennummer
 echo XXXXXXXXXX > /usr/local/addons/serialnumber.txt
 
+mv /tmp/crontab /usr/local/crontabs/root
+
 # Neustart durchführen
 sync
 reboot
 ```
 - wenn das LAN-Gateway erfolgreich gestartet wurde, leuchtet die Info-LED dauerhaft
+- wenn eine Verbindung von der CCU zum LAN-Gateway aufgebaut wurde, leuchtet die Internet-LED dauerhaft
 - die Standard-Seriennummer lautet CCU2GW0001
 - _manueller Aufruf mit Debug-Option_ <br/>
 `/usr/local/addons/hmlangw -D -n CCU2GW0001 -s /dev/mxs_auart_raw.0 -r -1`
@@ -98,6 +103,7 @@ mv ${UNUSED_INITDIR}S61rfd ${INITDIR}
 mv ${UNUSED_INITDIR}S62HMServer ${INITDIR}
 mv ${UNUSED_INITDIR}S70ReGaHss ${INITDIR}
 mv /bin/hss_led_unused /bin/hss_led
+mv /usr/local/crontabs/root_unused /usr/local/crontabs/root
 rmdir ${UNUSED_INITDIR}
 rm /etc/init.d/S61hmlangw
 rm /usr/local/addons/hmlangw

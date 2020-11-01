@@ -1,0 +1,4 @@
+12 4 * * * /bin/setHWClock.sh
+14 4 * * * /bin/SetInterfaceClock 
+0 4 * * * /usr/sbin/logrotate -f /etc/logrotate.conf || logger -p error -t "logrotate" "logrotate aborted with error $?"
+* * * * * if [ `netstat -t|grep :200[0-1]|wc -l` -eq "2" ]; then echo 255 > /sys/class/leds/internet/brightness; else echo 0 > /sys/class/leds/internet/brightness; fi
