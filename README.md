@@ -1,6 +1,7 @@
 # CCU2GW - CCU2 als LAN Gateway verwenden!
 ## (nur HM RF (wie das [HM-LGW-O-TW-W-EU](https://www.elv.de/homematic-funk-lan-gateway.html)) - kein HmIP!)
-_getestet mit CCU2 FW [2.35.16](https://www.eq-3.de/service/downloads.html?id=285)_
+
+❗Bitte vorher auf die neueste CCU2 Firmware aktualisieren, da es sonst aufgrund nicht mehr unterstützter TLS Versionen zu Fehlern beim Download kommen kann (#4).
 
 <hr/>
 
@@ -20,10 +21,10 @@ mount -o remount,rw /
 # Dateien herunterladen und Rechte anpassen
 mkdir -p /usr/local/addons/
 mv /firmware/fwmap /firmware/fwmap.orig
-wget --no-check-certificate -q -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap
-wget --no-check-certificate -q -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/hmlangw
-wget --no-check-certificate -q -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/S61hmlangw
-wget --no-check-certificate -q -O /tmp/crontab https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/crontab
+wget --no-check-certificate -O /firmware/fwmap https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/fwmap
+wget --no-check-certificate -O /usr/local/addons/hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/hmlangw
+wget --no-check-certificate -O /etc/init.d/S61hmlangw https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/S61hmlangw
+wget --no-check-certificate -O /tmp/crontab https://raw.githubusercontent.com/jp112sdl/CCU2GW/master/crontab
 chmod 755 /usr/local/addons/hmlangw
 chmod 755 /etc/init.d/S61hmlangw
 
@@ -60,8 +61,8 @@ mv /opt/mh/startup.sh /opt/mh/startup.sh_unused
 
 # optional: 
 # Seriennummer-Datei anlegen (nur notwendig wenn eine andere Seriennummer als CCU2GW0001 gewünscht wird)
-# XXXXXXXXXX ändern in 10-stellige Seriennummer
-echo XXXXXXXXXX > /usr/local/addons/serialnumber.txt
+# CCU2GW0001 ändern in 10-stellige Seriennummer
+echo CCU2GW0001 > /usr/local/addons/serialnumber.txt
 
 mv /tmp/crontab /usr/local/crontabs/root
 
