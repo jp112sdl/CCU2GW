@@ -1,7 +1,7 @@
 # CCU2GW - CCU2 als LAN Gateway verwenden!
 ## (nur HM RF (wie das [HM-LGW-O-TW-W-EU](https://www.elv.de/homematic-funk-lan-gateway.html)) - kein HmIP!)
 
-❗Bitte vorher auf die neueste CCU2 Firmware aktualisieren, da es sonst aufgrund nicht mehr unterstützter TLS Versionen zu Fehlern beim Download kommen kann (#4).
+❗Bitte vorher auf die neueste CCU2 Firmware aktualisieren, da es sonst aufgrund nicht mehr unterstützter TLS Versionen zu Fehlern beim Download kommen kann ([#4](https://github.com/jp112sdl/CCU2GW/issues/4)).
 
 <hr/>
 
